@@ -1,0 +1,19 @@
+{
+  "name": "solid-examples",
+  "version": "1.0.0",
+  "description": "Learn the SOLID principles with side-by-side examples in TypeScript, Node.js and PHP",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test \"principles/**/*.test.js\" \"principles/**/*.test.ts\"",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}
