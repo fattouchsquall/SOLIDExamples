@@ -11,6 +11,10 @@ Ton équipe a une classe `UserRegistration` qui inscrit les nouveaux utilisateur
 - [`typescript/exercise.ts`](typescript/exercise.ts)
 - [`nodejs/exercise.js`](nodejs/exercise.js)
 - [`php/Exercise.php`](php/Exercise.php)
+- [`python/exercise.py`](python/exercise.py)
+- [`java/Exercise.java`](java/Exercise.java)
+- [`go/exercise/exercise.go`](go/exercise/exercise.go)
+- [`csharp/Exercise.cs`](csharp/Exercise.cs)
 
 Ça fonctionne, mais son unique méthode `register()` en fait beaucoup. Et les demandes s'enchaînent :
 
@@ -76,6 +80,10 @@ Essaie d'abord seul ! Puis compare avec :
 - [`typescript/solution.ts`](typescript/solution.ts)
 - [`nodejs/solution.js`](nodejs/solution.js)
 - [`php/Solution.php`](php/Solution.php)
+- [`python/solution.py`](python/solution.py)
+- [`java/Solution.java`](java/Solution.java)
+- [`go/solution/solution.go`](go/solution/solution.go)
+- [`csharp/Solution.cs`](csharp/Solution.cs)
 
 Ta solution n'a pas besoin d'être identique. Si chaque classe a une seule raison de changer, c'est gagné.
 

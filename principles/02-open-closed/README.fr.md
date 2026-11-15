@@ -89,6 +89,10 @@ Le JavaScript pur n'a pas de mot-clé `interface`. Dans [`nodejs/good.js`](nodej
 node principles/02-open-closed/typescript/demo.ts
 node principles/02-open-closed/nodejs/demo.js
 php principles/02-open-closed/php/demo.php
+python3 principles/02-open-closed/python/demo.py
+java principles/02-open-closed/java/Demo.java
+go run ./principles/02-open-closed/go/demo
+dotnet run --project principles/02-open-closed/csharp
 ```
 
 ## Signaux d'alerte

@@ -17,6 +17,10 @@ Open the starting code in your language:
 - [`typescript/exercise.ts`](typescript/exercise.ts)
 - [`nodejs/exercise.js`](nodejs/exercise.js)
 - [`php/Exercise.php`](php/Exercise.php)
+- [`python/exercise.py`](python/exercise.py)
+- [`java/Exercise.java`](java/Exercise.java)
+- [`go/exercise/exercise.go`](go/exercise/exercise.go)
+- [`csharp/Exercise.cs`](csharp/Exercise.cs)
 
 > The weather API is simulated: it always answers 12°C and prints the HTTP call it would make.
 
@@ -36,7 +40,7 @@ And you are stuck: the result depends on **the real time** when the test runs, a
 
 ## Done when
 
-- [ ] `WeatherReporter` does not contain any `new` of a technical class, nor `new Date()` / `new DateTimeImmutable()`.
+- [ ] `WeatherReporter` does not contain any `new` of a technical class, nor a direct read of the clock (`new Date()`, `new DateTimeImmutable()`, `datetime.now()`, `LocalDateTime.now()`, `time.Now()`, `DateTime.Now`).
 - [ ] You can choose the time and the temperature in a test.
 - [ ] Switching to another weather provider does not touch `WeatherReporter`.
 
@@ -67,7 +71,9 @@ new WeatherReporter(cold, morning).report('Paris');
 // "Good morning! It is 3°C in Paris. Take a coat."
 ```
 
-In PHP, use anonymous classes: `new class implements Clock { ... }`.
+In PHP, use anonymous classes: `new class implements Clock { ... }`. In Java, both interfaces have a single method, so a lambda works: `() -> LocalDateTime.of(2026, 1, 15, 8, 0)`. In Python, write a tiny subclass in the test. In Go and C#, a small struct or class implementing the interface does the job.
+
+Good to know: Java and C# already ship an abstraction for this, `java.time.Clock` (with `Clock.fixed(...)` for tests) and `TimeProvider`.
 </details>
 
 ## Solution
@@ -77,6 +83,10 @@ Try on your own first! Then compare with:
 - [`typescript/solution.ts`](typescript/solution.ts)
 - [`nodejs/solution.js`](nodejs/solution.js)
 - [`php/Solution.php`](php/Solution.php)
+- [`python/solution.py`](python/solution.py)
+- [`java/Solution.java`](java/Solution.java)
+- [`go/solution/solution.go`](go/solution/solution.go)
+- [`csharp/Solution.cs`](csharp/Solution.cs)
 
 🎉 That was the last exercise. Check what you learned with the [quiz](../../QUIZ.md).
 

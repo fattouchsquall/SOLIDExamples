@@ -21,4 +21,4 @@ One exercise per principle. Each one gives you working but badly designed code, 
 5. Use the hints only if you are stuck, one at a time.
 6. Compare with the `solution` file. Yours does not have to be identical: what matters is that the principle is respected.
 
-Each `exercise` file is self-contained, so you can import it from a small script and run it with `node` or `php` to check that the behavior stays the same.
+Each `exercise` file is self-contained, so you can import it from a small script and run it with `node`, `php`, `python3`, `java`, `go run` or `dotnet run` to check that the behavior stays the same.

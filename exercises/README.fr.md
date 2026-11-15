@@ -21,4 +21,4 @@ Un exercice par principe. Chacun te donne un code qui fonctionne mais qui est ma
 5. N'utilise les indices que si tu bloques, un à la fois.
 6. Compare avec le fichier `solution`. Le tien n'a pas besoin d'être identique : ce qui compte, c'est que le principe soit respecté.
 
-Chaque fichier `exercise` est autonome : tu peux l'importer depuis un petit script et le lancer avec `node` ou `php` pour vérifier que le comportement ne change pas.
+Chaque fichier `exercise` est autonome : tu peux l'importer depuis un petit script et le lancer avec `node`, `php`, `python3`, `java`, `go run` ou `dotnet run` pour vérifier que le comportement ne change pas.

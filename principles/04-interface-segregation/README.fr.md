@@ -71,12 +71,20 @@ Maintenant :
 
 JavaScript n'a pas d'interfaces, le compilateur ne peut donc rien t'« obliger » à implémenter. Le principe s'applique quand même à tes **classes et classes de base** : ne donne pas à une classe des méthodes qu'elle ne sait pas honorer (comme `scan()` qui lève une erreur dans [`nodejs/bad.js`](nodejs/bad.js)), et garde les objets attendus par tes fonctions aussi petits que possible. Dans [`nodejs/good.js`](nodejs/good.js), `SimplePrinter` n'a tout simplement pas de méthode `scan`.
 
+### Et en Go ?
+
+Les petites interfaces, c'est l'esprit de Go : la bibliothèque standard repose sur des interfaces d'une seule méthode comme `io.Reader` et `io.Writer`. Dans [`go/bad/bad.go`](go/bad/bad.go), remarque comment la grosse interface `Machine` oblige `Scan` et `Fax` à renvoyer une `error` sur **toutes** les machines, juste parce que l'une d'elles ne sait pas le faire. Dans [`go/good/good.go`](go/good/good.go), les erreurs disparaissent avec le mensonge.
+
 ## Lancer l'exemple
 
 ```bash
 node principles/04-interface-segregation/typescript/demo.ts
 node principles/04-interface-segregation/nodejs/demo.js
 php principles/04-interface-segregation/php/demo.php
+python3 principles/04-interface-segregation/python/demo.py
+java principles/04-interface-segregation/java/Demo.java
+go run ./principles/04-interface-segregation/go/demo
+dotnet run --project principles/04-interface-segregation/csharp
 ```
 
 ## Signaux d'alerte

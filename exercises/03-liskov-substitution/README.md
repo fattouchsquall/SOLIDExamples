@@ -13,6 +13,10 @@ Open the starting code in your language:
 - [`typescript/exercise.ts`](typescript/exercise.ts)
 - [`nodejs/exercise.js`](nodejs/exercise.js)
 - [`php/Exercise.php`](php/Exercise.php)
+- [`python/exercise.py`](python/exercise.py)
+- [`java/Exercise.java`](java/Exercise.java)
+- [`go/exercise/exercise.go`](go/exercise/exercise.go)
+- [`csharp/Exercise.cs`](csharp/Exercise.cs)
 
 At the end of the month, the batch that charges account fees crashes:
 
@@ -27,7 +31,7 @@ chargeMonthlyFee([new BankAccount(100), new LockedSavingsAccount(1000)], 2);
 
 1. Find the promise that `BankAccount` makes and that `LockedSavingsAccount` cannot keep.
 2. Redesign the classes so that **every subclass can fully replace its parent**.
-3. `chargeMonthlyFee` must no longer accept a locked savings account. Ideally, passing one should be a compile error in TypeScript or a type error in PHP.
+3. `chargeMonthlyFee` must no longer accept a locked savings account. Ideally, passing one should be a compile error in TypeScript, Java, Go and C#, or a warning from a static analyser (PHPStan in PHP, mypy in Python).
 4. Add a `totalBalance(accounts)` function that works with **every** kind of account.
 
 ## Done when
@@ -49,6 +53,8 @@ Every account has a balance and accepts deposits. Only *some* accounts allow wit
 <summary>Hint 2: do I have to drop inheritance?</summary>
 
 No! Inheritance is fine when the parent promises only what every child can do. A base `Account` with `balance()` and `deposit()`, and two children `CheckingAccount` (adds `withdraw()`) and `LockedSavingsAccount` (adds `addInterest()`), respects LSP.
+
+In Go, which has no inheritance, embed a small shared struct holding the balance in both account types, and describe what each function needs with interfaces.
 </details>
 
 <details>
@@ -64,6 +70,10 @@ Try on your own first! Then compare with:
 - [`typescript/solution.ts`](typescript/solution.ts)
 - [`nodejs/solution.js`](nodejs/solution.js)
 - [`php/Solution.php`](php/Solution.php)
+- [`python/solution.py`](python/solution.py)
+- [`java/Solution.java`](java/Solution.java)
+- [`go/solution/solution.go`](go/solution/solution.go)
+- [`csharp/Solution.cs`](csharp/Solution.cs)
 
 Splitting into interfaces such as `Account` and `WithdrawableAccount` is also a valid answer. Notice how close this is to the [Interface Segregation Principle](../../principles/04-interface-segregation), coming next.
 

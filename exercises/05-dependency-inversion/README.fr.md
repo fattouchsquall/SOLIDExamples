@@ -17,6 +17,10 @@ Ouvre le code de départ dans ton langage :
 - [`typescript/exercise.ts`](typescript/exercise.ts)
 - [`nodejs/exercise.js`](nodejs/exercise.js)
 - [`php/Exercise.php`](php/Exercise.php)
+- [`python/exercise.py`](python/exercise.py)
+- [`java/Exercise.java`](java/Exercise.java)
+- [`go/exercise/exercise.go`](go/exercise/exercise.go)
+- [`csharp/Exercise.cs`](csharp/Exercise.cs)
 
 > L'API météo est simulée : elle répond toujours 12 °C et affiche l'appel HTTP qu'elle ferait.
 
@@ -36,7 +40,7 @@ Et tu es bloqué : le résultat dépend de **l'heure réelle** au moment du test
 
 ## C'est réussi quand
 
-- [ ] `WeatherReporter` ne contient aucun `new` d'une classe technique, ni `new Date()` / `new DateTimeImmutable()`.
+- [ ] `WeatherReporter` ne contient aucun `new` d'une classe technique, ni lecture directe de l'horloge (`new Date()`, `new DateTimeImmutable()`, `datetime.now()`, `LocalDateTime.now()`, `time.Now()`, `DateTime.Now`).
 - [ ] Tu peux choisir l'heure et la température dans un test.
 - [ ] Changer de fournisseur météo ne touche pas `WeatherReporter`.
 
@@ -67,7 +71,9 @@ new WeatherReporter(cold, morning).report('Paris');
 // "Good morning! It is 3°C in Paris. Take a coat."
 ```
 
-En PHP, utilise des classes anonymes : `new class implements Clock { ... }`.
+En PHP, utilise des classes anonymes : `new class implements Clock { ... }`. En Java, les deux interfaces n'ont qu'une méthode, une lambda suffit donc : `() -> LocalDateTime.of(2026, 1, 15, 8, 0)`. En Python, écris une petite sous-classe dans le test. En Go et en C#, une petite structure ou classe qui implémente l'interface fait l'affaire.
+
+Bon à savoir : Java et C# fournissent déjà une abstraction pour ça, `java.time.Clock` (avec `Clock.fixed(...)` pour les tests) et `TimeProvider`.
 </details>
 
 ## Solution
@@ -77,6 +83,10 @@ Essaie d'abord seul ! Puis compare avec :
 - [`typescript/solution.ts`](typescript/solution.ts)
 - [`nodejs/solution.js`](nodejs/solution.js)
 - [`php/Solution.php`](php/Solution.php)
+- [`python/solution.py`](python/solution.py)
+- [`java/Solution.java`](java/Solution.java)
+- [`go/solution/solution.go`](go/solution/solution.go)
+- [`csharp/Solution.cs`](csharp/Solution.cs)
 
 🎉 C'était le dernier exercice. Vérifie ce que tu as retenu avec le [quiz](../../QUIZ.fr.md).
 

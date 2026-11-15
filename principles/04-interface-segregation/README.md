@@ -71,12 +71,20 @@ Now:
 
 JavaScript has no interfaces, so you cannot be "forced" by the compiler. The principle still applies to your **classes and base classes**: don't give a class methods it cannot honor (like `scan()` throwing in [`nodejs/bad.js`](nodejs/bad.js)), and keep the objects your functions expect as small as possible. In [`nodejs/good.js`](nodejs/good.js), `SimplePrinter` simply has no `scan` method.
 
+### What about Go?
+
+Small interfaces are the Go way: the standard library is built on one-method interfaces such as `io.Reader` and `io.Writer`. In [`go/bad/bad.go`](go/bad/bad.go), notice how the big `Machine` interface forces `Scan` and `Fax` to return an `error` on **every** machine, only because one of them cannot do it. In [`go/good/good.go`](go/good/good.go), the errors disappear along with the lie.
+
 ## Run it
 
 ```bash
 node principles/04-interface-segregation/typescript/demo.ts
 node principles/04-interface-segregation/nodejs/demo.js
 php principles/04-interface-segregation/php/demo.php
+python3 principles/04-interface-segregation/python/demo.py
+java principles/04-interface-segregation/java/Demo.java
+go run ./principles/04-interface-segregation/go/demo
+dotnet run --project principles/04-interface-segregation/csharp
 ```
 
 ## Warning signs

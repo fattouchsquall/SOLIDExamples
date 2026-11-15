@@ -13,6 +13,10 @@ Open the starting code in your language:
 - [`typescript/exercise.ts`](typescript/exercise.ts)
 - [`nodejs/exercise.js`](nodejs/exercise.js)
 - [`php/Exercise.php`](php/Exercise.php)
+- [`python/exercise.py`](python/exercise.py)
+- [`java/Exercise.java`](java/Exercise.java)
+- [`go/exercise/exercise.go`](go/exercise/exercise.go)
+- [`csharp/Exercise.cs`](csharp/Exercise.cs)
 
 > The storages are simulated in memory, so you can run everything without an AWS account.
 
@@ -27,7 +31,7 @@ Problems the team keeps running into:
 1. Split `FileStorage` into smaller interfaces, grouped by **what clients actually use**.
 2. Make each storage implement only what it really supports.
 3. Make `ReportViewer` and `ReportSharer` ask only for what they need.
-4. Passing a `LocalDiskStorage` to `ReportSharer` should become a compile error in TypeScript and a type error in PHP.
+4. Passing a `LocalDiskStorage` to `ReportSharer` should become a compile error in TypeScript, Java, Go and C#, a `TypeError` in PHP, and a mypy warning in Python.
 
 ## Done when
 
@@ -46,7 +50,7 @@ Look at who calls what. `ReportViewer` reads. `ReportSharer` generates signed UR
 <details>
 <summary>Hint 2: can a class implement several interfaces?</summary>
 
-Yes. `S3Storage` can implement all three roles, `LocalDiskStorage` only reading and writing. In TypeScript: `class S3Storage implements A, B, C`. In PHP: `final class S3Storage implements A, B, C`.
+Yes. `S3Storage` can implement all three roles, `LocalDiskStorage` only reading and writing. In TypeScript and Java: `class S3Storage implements A, B, C`. In PHP: `final class S3Storage implements A, B, C`. In Python: `class S3Storage(A, B, C)`. In C#: `public sealed class S3Storage : IA, IB, IC`. In Go, there is nothing to declare: a type satisfies an interface as soon as it has its methods.
 </details>
 
 <details>
@@ -62,5 +66,9 @@ Try on your own first! Then compare with:
 - [`typescript/solution.ts`](typescript/solution.ts)
 - [`nodejs/solution.js`](nodejs/solution.js)
 - [`php/Solution.php`](php/Solution.php)
+- [`python/solution.py`](python/solution.py)
+- [`java/Solution.java`](java/Solution.java)
+- [`go/solution/solution.go`](go/solution/solution.go)
+- [`csharp/Solution.cs`](csharp/Solution.cs)
 
 ⬅️ Previous exercise: [Liskov Substitution](../03-liskov-substitution) · ➡️ Next exercise: [Dependency Inversion](../05-dependency-inversion)

@@ -94,6 +94,10 @@ And the [tests](typescript/good.test.ts) use an in-memory repository and a notif
 node principles/05-dependency-inversion/typescript/demo.ts
 node principles/05-dependency-inversion/nodejs/demo.js
 php principles/05-dependency-inversion/php/demo.php
+python3 principles/05-dependency-inversion/python/demo.py
+java principles/05-dependency-inversion/java/Demo.java
+go run ./principles/05-dependency-inversion/go/demo
+dotnet run --project principles/05-dependency-inversion/csharp
 ```
 
 ## Warning signs

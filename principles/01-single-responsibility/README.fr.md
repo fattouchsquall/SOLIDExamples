@@ -66,6 +66,10 @@ Maintenant :
 node principles/01-single-responsibility/typescript/demo.ts
 node principles/01-single-responsibility/nodejs/demo.js
 php principles/01-single-responsibility/php/demo.php
+python3 principles/01-single-responsibility/python/demo.py
+java principles/01-single-responsibility/java/Demo.java
+go run ./principles/01-single-responsibility/go/demo
+dotnet run --project principles/01-single-responsibility/csharp
 ```
 
 Les deux versions affichent la même facture : **le comportement n'a pas changé, seule la structure a changé**. C'est exactement ce qu'on attend d'un bon refactoring.

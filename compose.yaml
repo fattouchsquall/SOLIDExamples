@@ -1,0 +1,56 @@
+x-workspace: &workspace
+  working_dir: /app
+  volumes:
+    - .:/app
+
+services:
+  node:
+    <<: *workspace
+    image: node:24
+    command: sh -c "npm install --no-audit --no-fund && make node"
+
+  php:
+    <<: *workspace
+    build:
+      context: docker
+      dockerfile: php.Dockerfile
+    command: sh -c "composer install --no-interaction --no-progress && make php"
+
+  python:
+    <<: *workspace
+    image: python:3.13
+    command: make python PYTHON=python
+
+  java:
+    <<: *workspace
+    build:
+      context: docker
+      dockerfile: java.Dockerfile
+    command: make java
+
+  go:
+    <<: *workspace
+    image: golang:1.27
+    volumes:
+      - .:/app
+      - go-modules:/go/pkg/mod
+      - go-build:/root/.cache/go-build
+    command: make go
+
+  csharp:
+    <<: *workspace
+    build:
+      context: docker
+      dockerfile: csharp.Dockerfile
+    volumes:
+      - .:/app
+      - nuget-packages:/root/.nuget/packages
+    environment:
+      DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+      DOTNET_NOLOGO: "1"
+    command: make csharp
+
+volumes:
+  go-modules:
+  go-build:
+  nuget-packages:

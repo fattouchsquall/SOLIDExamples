@@ -1,0 +1,121 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  node:
+    name: TypeScript & Node.js
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - run: npm install
+      - name: Tests, type checking and exercises
+        run: make node
+      - name: Demos
+        run: |
+          for demo in principles/*/typescript/demo.ts principles/*/nodejs/demo.js; do
+            node "$demo" > /dev/null
+          done
+
+  php:
+    name: PHP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer
+          coverage: none
+      - run: composer install --no-interaction --no-progress
+      - name: Tests and exercises
+        run: make php
+      - name: Demos
+        run: |
+          for demo in principles/*/php/demo.php; do
+            php "$demo" > /dev/null
+          done
+
+  python:
+    name: Python
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Tests and exercises
+        run: make python PYTHON=python
+      - name: Demos
+        run: |
+          for demo in principles/*/python/demo.py; do
+            python "$demo" > /dev/null
+          done
+
+  java:
+    name: Java
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '25'
+      - name: Tests and exercises
+        run: make java
+      - name: Demos
+        run: |
+          for demo in principles/*/java/Demo.java; do
+            java "$demo" > /dev/null
+          done
+
+  go:
+    name: Go
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version: stable
+      - name: Tests and exercises
+        run: make go
+      - name: Demos
+        run: |
+          for demo in principles/*/go/demo; do
+            go run "./$demo" > /dev/null
+          done
+
+  csharp:
+    name: C#
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+      - name: Tests and exercises
+        run: make csharp
+      - name: Demos
+        run: |
+          for demo in principles/*/csharp; do
+            dotnet run --project "$demo/Demo.csproj" > /dev/null
+          done
+
+  docker:
+    name: Docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Validate compose.yaml
+        run: docker compose config --quiet
+      - name: Build the images
+        run: docker compose build

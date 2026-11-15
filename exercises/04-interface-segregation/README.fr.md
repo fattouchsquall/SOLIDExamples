@@ -13,6 +13,10 @@ Ouvre le code de départ dans ton langage :
 - [`typescript/exercise.ts`](typescript/exercise.ts)
 - [`nodejs/exercise.js`](nodejs/exercise.js)
 - [`php/Exercise.php`](php/Exercise.php)
+- [`python/exercise.py`](python/exercise.py)
+- [`java/Exercise.java`](java/Exercise.java)
+- [`go/exercise/exercise.go`](go/exercise/exercise.go)
+- [`csharp/Exercise.cs`](csharp/Exercise.cs)
 
 > Les stockages sont simulés en mémoire, tu peux donc tout lancer sans compte AWS.
 
@@ -27,7 +31,7 @@ Les problèmes que l'équipe rencontre sans arrêt :
 1. Découpe `FileStorage` en interfaces plus petites, regroupées selon **ce que les clients utilisent vraiment**.
 2. Fais en sorte que chaque stockage n'implémente que ce qu'il sait réellement faire.
 3. Fais en sorte que `ReportViewer` et `ReportSharer` ne demandent que ce dont ils ont besoin.
-4. Passer un `LocalDiskStorage` à `ReportSharer` doit devenir une erreur de compilation en TypeScript et une erreur de type en PHP.
+4. Passer un `LocalDiskStorage` à `ReportSharer` doit devenir une erreur de compilation en TypeScript, Java, Go et C#, une `TypeError` en PHP, et un avertissement de mypy en Python.
 
 ## C'est réussi quand
 
@@ -46,7 +50,7 @@ Regarde qui appelle quoi. `ReportViewer` lit. `ReportSharer` génère des URL si
 <details>
 <summary>Indice 2 : une classe peut-elle implémenter plusieurs interfaces ?</summary>
 
-Oui. `S3Storage` peut implémenter les trois rôles, `LocalDiskStorage` seulement la lecture et l'écriture. En TypeScript : `class S3Storage implements A, B, C`. En PHP : `final class S3Storage implements A, B, C`.
+Oui. `S3Storage` peut implémenter les trois rôles, `LocalDiskStorage` seulement la lecture et l'écriture. En TypeScript et en Java : `class S3Storage implements A, B, C`. En PHP : `final class S3Storage implements A, B, C`. En Python : `class S3Storage(A, B, C)`. En C# : `public sealed class S3Storage : IA, IB, IC`. En Go, il n'y a rien à déclarer : un type satisfait une interface dès qu'il en a les méthodes.
 </details>
 
 <details>
@@ -62,5 +66,9 @@ Essaie d'abord seul ! Puis compare avec :
 - [`typescript/solution.ts`](typescript/solution.ts)
 - [`nodejs/solution.js`](nodejs/solution.js)
 - [`php/Solution.php`](php/Solution.php)
+- [`python/solution.py`](python/solution.py)
+- [`java/Solution.java`](java/Solution.java)
+- [`go/solution/solution.go`](go/solution/solution.go)
+- [`csharp/Solution.cs`](csharp/Solution.cs)
 
 ⬅️ Exercice précédent : [Substitution de Liskov](../03-liskov-substitution/README.fr.md) · ➡️ Exercice suivant : [Inversion des dépendances](../05-dependency-inversion/README.fr.md)

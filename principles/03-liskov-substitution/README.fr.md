@@ -64,6 +64,10 @@ Deux autres changements aident :
 - Les formes sont **immuables** (`readonly`) : sans setter, pas de promesse sur les setters à casser.
 - `totalArea` ne s'appuie que sur ce que `Shape` garantit. Les [tests](typescript/good.test.ts) ajoutent un `Triangle` après coup, et `totalArea` fonctionne avec lui sans changement.
 
+### Et en Go ?
+
+Go n'a ni classes ni héritage, et pourtant le LSP s'applique, parce qu'il parle de **contrats**, pas d'`extends`. Dans [`go/bad/bad.go`](go/bad/bad.go), `Square` embarque `Rectangle` et redéfinit ses setters, et `Resize` accepte n'importe quelle interface `Resizable`. `Square` satisfait l'interface, le compilateur ne dit rien, et le résultat est tout aussi faux. Chaque type qui implémente une interface doit respecter ce qu'elle promet.
+
 ## Les règles derrière le LSP
 
 Une sous-classe respecte le LSP quand elle :
@@ -81,6 +85,10 @@ Une sous-classe respecte le LSP quand elle :
 node principles/03-liskov-substitution/typescript/demo.ts
 node principles/03-liskov-substitution/nodejs/demo.js
 php principles/03-liskov-substitution/php/demo.php
+python3 principles/03-liskov-substitution/python/demo.py
+java principles/03-liskov-substitution/java/Demo.java
+go run ./principles/03-liskov-substitution/go/demo
+dotnet run --project principles/03-liskov-substitution/csharp
 ```
 
 ## Signaux d'alerte

@@ -11,6 +11,10 @@ A `ReportExporter` turns a list of sales into a file, in CSV, JSON or HTML. Open
 - [`typescript/exercise.ts`](typescript/exercise.ts)
 - [`nodejs/exercise.js`](nodejs/exercise.js)
 - [`php/Exercise.php`](php/Exercise.php)
+- [`python/exercise.py`](python/exercise.py)
+- [`java/Exercise.java`](java/Exercise.java)
+- [`go/exercise/exercise.go`](go/exercise/exercise.go)
+- [`csharp/Exercise.cs`](csharp/Exercise.cs)
 
 Today, a colleague asks for a **Markdown** export to paste reports into the wiki. Next month, someone will surely ask for XML, then Excel…
 
@@ -75,5 +79,9 @@ Try on your own first! Then compare with:
 - [`typescript/solution.ts`](typescript/solution.ts)
 - [`nodejs/solution.js`](nodejs/solution.js)
 - [`php/Solution.php`](php/Solution.php)
+- [`python/solution.py`](python/solution.py)
+- [`java/Solution.java`](java/Solution.java)
+- [`go/solution/solution.go`](go/solution/solution.go)
+- [`csharp/Solution.cs`](csharp/Solution.cs)
 
 ⬅️ Previous exercise: [Single Responsibility](../01-single-responsibility) · ➡️ Next exercise: [Liskov Substitution](../03-liskov-substitution)

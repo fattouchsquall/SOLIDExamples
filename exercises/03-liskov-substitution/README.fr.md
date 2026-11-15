@@ -13,6 +13,10 @@ Ouvre le code de départ dans ton langage :
 - [`typescript/exercise.ts`](typescript/exercise.ts)
 - [`nodejs/exercise.js`](nodejs/exercise.js)
 - [`php/Exercise.php`](php/Exercise.php)
+- [`python/exercise.py`](python/exercise.py)
+- [`java/Exercise.java`](java/Exercise.java)
+- [`go/exercise/exercise.go`](go/exercise/exercise.go)
+- [`csharp/Exercise.cs`](csharp/Exercise.cs)
 
 En fin de mois, le traitement qui prélève les frais de tenue de compte plante :
 
@@ -27,7 +31,7 @@ chargeMonthlyFee([new BankAccount(100), new LockedSavingsAccount(1000)], 2);
 
 1. Trouve la promesse que fait `BankAccount` et que `LockedSavingsAccount` ne peut pas tenir.
 2. Revois les classes pour que **chaque sous-classe puisse remplacer entièrement son parent**.
-3. `chargeMonthlyFee` ne doit plus accepter de compte épargne bloqué. Idéalement, en passer un doit être une erreur de compilation en TypeScript ou une erreur de type en PHP.
+3. `chargeMonthlyFee` ne doit plus accepter de compte épargne bloqué. Idéalement, en passer un doit être une erreur de compilation en TypeScript, Java, Go et C#, ou un avertissement d'un outil d'analyse statique (PHPStan en PHP, mypy en Python).
 4. Ajoute une fonction `totalBalance(accounts)` qui fonctionne avec **tous** les types de comptes.
 
 ## C'est réussi quand
@@ -49,6 +53,8 @@ Tous les comptes ont un solde et acceptent des dépôts. Seuls *certains* compte
 <summary>Indice 2 : faut-il abandonner l'héritage ?</summary>
 
 Non ! L'héritage est correct quand le parent ne promet que ce que chaque enfant sait faire. Une classe de base `Account` avec `balance()` et `deposit()`, et deux enfants `CheckingAccount` (qui ajoute `withdraw()`) et `LockedSavingsAccount` (qui ajoute `addInterest()`), respecte le LSP.
+
+En Go, qui n'a pas d'héritage, embarque dans les deux types de comptes une petite structure commune qui porte le solde, et décris ce dont chaque fonction a besoin avec des interfaces.
 </details>
 
 <details>
@@ -64,6 +70,10 @@ Essaie d'abord seul ! Puis compare avec :
 - [`typescript/solution.ts`](typescript/solution.ts)
 - [`nodejs/solution.js`](nodejs/solution.js)
 - [`php/Solution.php`](php/Solution.php)
+- [`python/solution.py`](python/solution.py)
+- [`java/Solution.java`](java/Solution.java)
+- [`go/solution/solution.go`](go/solution/solution.go)
+- [`csharp/Solution.cs`](csharp/Solution.cs)
 
 Découper en interfaces comme `Account` et `WithdrawableAccount` est aussi une bonne réponse. Remarque à quel point c'est proche du [principe de ségrégation des interfaces](../../principles/04-interface-segregation/README.fr.md), qui arrive juste après.
 
